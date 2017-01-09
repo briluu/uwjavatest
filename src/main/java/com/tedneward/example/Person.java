@@ -20,6 +20,7 @@ public class Person implements Comparable<Person> {
     name = n;
     age = a;
     salary = s;
+    ssn = "";
     personCount++;
   }
 
@@ -29,9 +30,6 @@ public class Person implements Comparable<Person> {
     }
     int old = age;
     age = value;
-
-    this.pcs.firePropertyChange("age", old, value);
-    propertyChangeFired = true;
   }
 
   public int getAge() {
@@ -44,9 +42,6 @@ public class Person implements Comparable<Person> {
     }
     String old = name;
     name = value;
-
-    this.pcs.firePropertyChange("name", old, value);
-    propertyChangeFired = true;
   }
 
   public String getName() {
@@ -59,9 +54,6 @@ public class Person implements Comparable<Person> {
     }
     double old = salary;
     salary = value;
-
-    this.pcs.firePropertyChange("salary", old, value);
-    propertyChangeFired = true;
   }
 
   public double getSalary() {
@@ -129,6 +121,7 @@ public class Person implements Comparable<Person> {
       this.pcs.removePropertyChangeListener(listener);
   }
 
+  // Returns a list of Persons in the Neward family
   public static ArrayList<Person> getNewardFamily() {
     Person ted = new Person("Ted", 41, 250000);
     Person charlotte = new Person("Charlotte", 43, 150000);
